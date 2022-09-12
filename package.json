@@ -1,0 +1,24 @@
+{
+  "name": "ticket",
+  "version": "1.0.0",
+  "description": "Ticket NFT as implementation for Virtual Access Token",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Philipp Landeck",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.1.1",
+    "ethers": "^5.0.0",
+    "hardhat": "^2.11.1"
+  },
+  "dependencies": {
+    "@alch/alchemy-web3": "^1.4.6",
+    "@openzeppelin/contracts": "^4.7.3",
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.2",
+    "fs": "^0.0.1-security",
+    "read-last-lines": "^1.8.0"
+  }
+}
