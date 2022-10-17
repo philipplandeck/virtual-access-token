@@ -1,0 +1,38 @@
+{
+    "description": "Team A vs. Team B am 20.08.2022, 20:00 Uhr",
+    "external_url": "<Link zur Webseite>/166101840021",
+    "image": "ipfs://<hash>",
+    "name": "Ticket 166101840021",
+    "attributes": [
+        {
+            "trait_type": "Titel",
+            "value": "Team A vs. Team B"
+        },
+        {
+            "display_type": "date",
+            "trait_type": "Datum",
+            "value": "20.08.2022"
+        },
+        {
+            "trait_type": "Zeit",
+            "value": "20:00 Uhr"
+        },
+        {
+            "trait_type": "Zone",
+            "value": "C"
+        },
+        {
+            "trait_type": "Sitz",
+            "value": 1
+        },
+        {
+            "trait_type": "Preis",
+            "value": 20
+        },
+        {
+            "display_type": "number",
+            "trait_type": "Ticket-ID",
+            "value": "166101840021"
+        }
+    ]
+}

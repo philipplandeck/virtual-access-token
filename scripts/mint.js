@@ -1,17 +1,20 @@
+// Based on https://ethereum.org/en/developers/tutorials/how-to-mint-an-nft/
 require("dotenv").config();
 const API_URL = process.env.API_URL;
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
 const PUBLIC_KEY = process.env.PUBLIC_KEY;
 
+const argv = process.argv.slice(2);
+const contractAddress = argv[0];
+const metadata = argv[1];
+
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 const web3 = createAlchemyWeb3(API_URL);
 
 const contract = require("../artifacts/contracts/SportEvent.sol/SportEvent.json");
-const contractAddress = "0x126B5bc85921183b4275BCA655aa11C3BCBa7215"
 const nftContract = new web3.eth.Contract(contract.abi, contractAddress);
 
 async function assignTicket(tokenURI) {
-  // Get latest nonce
   const nonce = await web3.eth.getTransactionCount(PUBLIC_KEY, "latest");
 
   const transaction = {
@@ -47,4 +50,4 @@ async function assignTicket(tokenURI) {
     });
 }
 
-assignTicket("ipfs://QmRjpyAB5K6GAw6B59jc2qK3kmg8JihzB8TmePNPmqXMkg");
+assignTicket(metadata);

@@ -1,3 +1,4 @@
+// Based on https://ethereum.org/en/developers/tutorials/how-to-write-and-deploy-an-nft/
 async function main() {
   const SportEvent = await ethers.getContractFactory("SportEvent");
 
@@ -9,7 +10,7 @@ async function main() {
 
   // Log contact address to contracts/contracts.log
   const fs = require("fs");
-  const path = require('path');
+  const path = require("path");
   const timestamp = new Date().toISOString().substr(0, 19).replace("T", " ");
   const logline = timestamp + "\t\t" + contractAddress + "\n";
   const filepath = path.join("contracts", "contracts.log");
