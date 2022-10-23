@@ -78,10 +78,6 @@ def main():
                         "display_type": "number",
                         "trait_type": "Ticket-ID",
                         "value": ticket_id
-                    },
-                    {
-                        "trait_type": "Link",
-                        "value": f"<Link zur Webseite>/{ticket_id}"
                     }
                 ]
             }

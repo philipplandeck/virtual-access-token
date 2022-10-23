@@ -11,8 +11,8 @@ const metadata = argv[1];
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 const web3 = createAlchemyWeb3(API_URL);
 
-const contract = require("../artifacts/contracts/SportEvent.sol/SportEvent.json");
-const nftContract = new web3.eth.Contract(contract.abi, contractAddress);
+const SportEvent = require("../artifacts/contracts/SportEvent.sol/SportEvent.json");
+const contract = new web3.eth.Contract(SportEvent.abi, contractAddress);
 
 async function assignTicket(tokenURI) {
   const nonce = await web3.eth.getTransactionCount(PUBLIC_KEY, "latest");
@@ -22,7 +22,7 @@ async function assignTicket(tokenURI) {
     to: contractAddress,
     nonce: nonce,
     gas: 500000,
-    data: nftContract.methods.assignTicket(PUBLIC_KEY, tokenURI).encodeABI(),
+    data: contract.methods.assignTicket(PUBLIC_KEY, tokenURI).encodeABI(),
   };
 
   web3.eth.accounts

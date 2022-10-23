@@ -23,18 +23,16 @@ def parse_arguments():
 def main():
     args = parse_arguments()
     metadata_path = args.metadata_dir
-    if not metadata_path.is_dir():
-        os.makedirs(metadata_path)
-    if not any(metadata_path.iterdir()):
-        exit("Directory is empty!")
+    if not metadata_path.is_dir() or not any(metadata_path.iterdir()):
+        exit("Invalid directory!")
     qr_path = args.qr_dir
     if not qr_path.is_dir():
         os.makedirs(qr_path)
 
     for filename in os.listdir(metadata_path):
+        ticket_id = filename.split(".")[0]
         file = open(os.path.join(metadata_path, filename))
         data = json.load(file)
-        ticket_id = filename.split(".")[0]
         link = data["external_url"]
         file.close()
 
@@ -47,7 +45,6 @@ def main():
         qr.make(fit=True)
         img = qr.make_image(fill='black', back_color=(217, 217, 217))
         img.save(qr_filename)
-        print(f"QR-code {qr_filename} was created successfully!")
 
 
 if __name__ == '__main__':

@@ -68,11 +68,7 @@ async function readImageFiles() {
 
 async function test(file) {
   const filePath = path.join(imageDir, file);
-  console.log("K")
   const content = await readF(filePath);
-  console.log("TETS2");
-  console.log(content);
-  console.log("KD")
   const promise = new Promise((resolve, reject) => {
     if (!content) reject();
     else {
